@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--<settings>
+        &lt;!&ndash; 打开延迟加载的开关 &ndash;&gt;
+        <setting name="lazyLoadingEnabled" value="true"/>
+        &lt;!&ndash; 将积极加载改为消极加载（即按需加载） &ndash;&gt;
+        <setting name="aggressiveLazyLoading" value="false"/>
+        &lt;!&ndash; 打开全局缓存开关（二级缓存）默认值就是 true &ndash;&gt;
+        <setting name="cacheEnabled" value="true"/>
+    </settings>-->
+    <!--<typeAliases>
+    <package name="entity"/>
+</typeAliases>-->
+    <!--将写好的sql映射文件注册到全局配置文件中，类路径下直接写 UserMapper.xml就行，要是在包中则写com/yunqing/.../UserMapper.xml-->
+    <!--<mappers>
+      <mapper resource="mapper/UserMapper.xml"/>
+        &lt;!&ndash;<mapper class="com.yunqing.mybatis.dao.UserMapperAnnotation"/>&ndash;&gt;
+        &lt;!&ndash;<package name="dao"/>&ndash;&gt;
+    </mappers>-->
+</configuration>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+namespace:命名空间,指定为接口的全类名
+selectUserById：唯一标识
+resultType：返回值类型
+-->
+<mapper namespace="com.ovs.dao.AdminMapper">
+    <select id="login_check" parameterType="com.ovs.entity.User_admin" resultType="com.ovs.entity.User_admin">
+  		select * from user_admin where loginname = #{loginname} and psw = #{psw}
+  	</select>
+        <select id="findByUserName" parameterType="String" resultType="com.ovs.entity.User_admin">
+  		select * from user_admin where loginname = #{loginname}
+  	</select>
+        <select id="findList" parameterType="Map" resultType="com.ovs.entity.User_admin">
+  		select * from user_admin where name like #{name} limit #{offset},#{pageSize}
+  	</select>
+        <select id="getTotal" parameterType="Map" resultType="Integer">
+  		select count(id) from user_admin where name like #{name}
+  	</select>
+        <update id="add" parameterType="com.ovs.entity.User_admin">
+  		insert into user_admin(id,name,loginname,psw) values(null,#{name},#{loginname},#{psw})
+  	</update>
+        <update id="edit" parameterType="com.ovs.entity.User_admin">
+  		update user_admin set name = #{name},loginname = #{loginname},psw = #{psw} where id = #{id}
+  	</update>
+        <update id="delete" parameterType="String">
+  		delete from user_admin where id in (${value})
+  	</update>
+</mapper>

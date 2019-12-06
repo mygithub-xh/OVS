@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+namespace:命名空间,指定为接口的全类名
+selectUserById：唯一标识
+resultType：返回值类型
+-->
+<mapper namespace="com.ovs.dao.UserMapper">
+    <select id="login_check" parameterType="com.ovs.entity.User" resultType="com.ovs.entity.User">
+  		select * from user where loginname = #{loginname} and psw = #{psw}
+  	</select>
+    <select id="findByUserName" parameterType="String" resultType="com.ovs.entity.User">
+  		select * from user where name = #{username}
+  	</select>
+    <select id="findList" parameterType="Map" resultType="com.ovs.entity.User">
+        select * from user where 1=1
+        <if test="username !=null">
+            and name like #{username}
+        </if>
+        limit #{offset},#{pageSize}
+    </select>
+    <select id="findAll" resultType="com.ovs.entity.User">
+  		select * from user
+  	</select>
+    <select id="getTotal" parameterType="Map" resultType="Integer">
+        select count(user_id) from user where 1=1
+        <if test="name !=null">
+            and name like #{name}
+        </if>
+    </select>
+    <update id="add" parameterType="com.ovs.entity.User">
+  		insert into user  values(null,#{name},#{loginname},#{psw},#{sex},#{phone},#{email},#{photo})
+  	</update>
+    <update id="edit" parameterType="com.ovs.entity.User">
+  		update user set loginname = #{loginname},name = #{name},psw=#{psw},sex=#{sex},phone=#{phone},email = #{email},photo=#{photo} where user_id = #{user_id}
+  	</update>
+    <update id="delete" parameterType="String">
+  		delete from user where user_id in (${value})
+  	</update>
+</mapper>

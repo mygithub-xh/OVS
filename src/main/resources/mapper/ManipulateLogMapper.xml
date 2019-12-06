@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+namespace:命名空间,指定为接口的全类名
+selectUserById：唯一标识
+resultType：返回值类型
+-->
+<mapper namespace="com.ovs.dao.ManipulateLogMapper">
+        <select id="findByUserName" parameterType="String" resultType="com.ovs.entity.ManipulateLog">
+  		select * from manipulatelog where userName = #{userName}
+  	</select>
+        <select id="findList" parameterType="Map" resultType="com.ovs.entity.ManipulateLog">
+  		select * from manipulatelog where userName like #{userName} limit #{offset},#{pageSize}
+  	</select>
+        <select id="getTotal" parameterType="Map" resultType="Integer">
+  		select count(id) from manipulatelog where userName like #{userName}
+  	</select>
+        <update id="add" parameterType="com.ovs.entity.ManipulateLog">
+  		insert into manipulatelog(id,userName,mpDescribe,createTime,remark) values(null,#{userName},#{mpDescribe},#{createTime},#{remark})
+  	</update>
+
+        <update id="delete" parameterType="String">
+  		delete from manipulatelog where id in (${value})
+  	</update>
+</mapper>
