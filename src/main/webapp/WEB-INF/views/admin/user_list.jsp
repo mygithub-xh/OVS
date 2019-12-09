@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../easyui/themes/default/easyui.css">
 	<link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
 	<link rel="stylesheet" type="text/css" href="../easyui/css/demo.css">
+	<script src="${pageContext.request.contextPath}/js/md5.js"></script>
 	<script type="text/javascript" src="../easyui/jquery.min.js"></script>
 	<script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
 	<script type="text/javascript" src="../easyui/js/validateExtends.js"></script>
@@ -149,7 +150,12 @@
 								$.messager.alert("消息提醒","请检查你输入的数据!","warning");
 								return;
 							} else{
-								var data = $("#addForm").serialize();
+								var data = $("#addForm").serializeArray();
+								for (var index=0;index<data.length;index++)
+									if (data[index].name=="password") {
+										data[index].value = b64_md5(encodeURIComponent($('#add_password').val()))
+										break;
+									}
 								$.ajax({
 									type: "post",
 									url: "add",
@@ -214,8 +220,12 @@
 								return;
 							} else{
 
-								var data = $("#editForm").serialize();
-
+								var data = $("#editForm").serializeArray();
+								for (var index=0;index<data.length;index++)
+									if (data[index].name=="password") {
+										data[index].value = b64_md5(encodeURIComponent($('#edit_password').val()))
+										break;
+									}
 								$.ajax({
 									type: "post",
 									url: "edit",
@@ -247,7 +257,7 @@
 					$("#edit-id").val(selectRow.id);
 					$("#edit_username").textbox('setValue', selectRow.name);
 					$("#edit_loginname").textbox('setValue', selectRow.loginname);
-					$("#edit_password").textbox('setValue', selectRow.password);
+					$("#edit_password").textbox('setValue', "");
 					$("#edit_sex").textbox('setValue', selectRow.sex);
 					$("#edit_phone").textbox('setValue', selectRow.phone);
 					$("#edit_email").textbox('setValue', selectRow.email);

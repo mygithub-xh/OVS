@@ -19,32 +19,32 @@
 	 var _menus = {"menus":[
 						{"menuid":"1","icon":"","menuname":"管理员用户",
 							"menus":[
-									{"menuid":"11","menuname":"管理员列表","icon":"icon-user-teacher","url":"../admin_user/list"}
+									{"menuid":"11","menuname":"管理员列表","icon":"icon-user-admin","url":"../admin_user/list"}
 								]
 						},
 						{"menuid":"3","icon":"","menuname":"用户信息管理",
 							"menus":[
-									{"menuid":"31","menuname":"用户列表","icon":"icon-world","url":"../user/list"},
+									{"menuid":"31","menuname":"用户列表","icon":"icon-user-teacher","url":"../user/list"},
 								]
 						},
 						{"menuid":"4","icon":"","menuname":"视频信息管理",
 							"menus":[
-									{"menuid":"41","menuname":"视频列表","icon":"icon-house","url":"../clazz/list"},
+									{"menuid":"41","menuname":"视频列表","icon":"icon-video","url":"../clazz/list"},
 								]
 						},
 						{"menuid":"2","icon":"","menuname":"公告信息管理",
 							"menus":[
-									{"menuid":"21","menuname":"公告列表","icon":"icon-user-student","url":"../student/list"},
+									{"menuid":"21","menuname":"公告列表","icon":"icon-trumpet","url":"../student/list"},
 								]
 						},
                          {"menuid":"5","icon":"","menuname":"文件信息管理",
                              "menus":[
-                                 {"menuid":"21","menuname":"文件列表","icon":"icon-user-student","url":"../student/list"},
+                                 {"menuid":"51","menuname":"文件列表","icon":"icon-book-open","url":"../student/list"},
                              ]
                          },
                          {"menuid":"6","icon":"","menuname":"日志信息管理",
                              "menus":[
-                                 {"menuid":"21","menuname":"日志信息","icon":"icon-user-student","url":"../ManipulateLog/list"},
+                                 {"menuid":"61","menuname":"日志信息","icon":"icon-chart_bar","url":"../ManipulateLog/list"},
                              ]
                          },
 						

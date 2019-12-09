@@ -97,6 +97,16 @@
 .icon-book-open{
 	background:url('icons/book_open_mark.png') no-repeat center center;
 }
+.icon-trumpet{
+	background:url('icons/trumpet.png') no-repeat center center;
+}
+.icon-video{
+	background:url('icons/video.png') no-repeat center center;
+}
+.icon-user-admin{
+	background:url('icons/admin_user.png') no-repeat center center;
+}
+
 .icon-number{
 	background:url('icons/text_list_numbers.png') no-repeat center center;
 }

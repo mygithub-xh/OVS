@@ -1,5 +1,6 @@
 package  test;
 import com.ovs.entity.User;
+import com.ovs.util.MD5Util;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 import org.junit.Test;
@@ -41,6 +42,7 @@ public class logtest {
        /* user.setId(1);
         user.setLoginname("xxxxx");
         System.out.println(user);*/
+        System.out.println(MD5Util.EncoderByMd5("123xuhang5vv"));
     }
 
 }

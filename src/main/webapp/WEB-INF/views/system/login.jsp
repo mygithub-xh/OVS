@@ -142,6 +142,7 @@
 <script src="${pageContext.request.contextPath}/webjars/jquery/3.3.1-2/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/particles.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/app.js"></script>
+<script src="${pageContext.request.contextPath}/js/md5.js"></script>
 <script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="../h-ui/lib/icheck/jquery.icheck.min.js"></script>
 
@@ -187,10 +188,12 @@
             // （2）设置请求的参数。包括：请求的方法、请求的url。
             ajaxObj.open('post', '${pageContext.request.contextPath}/system/login');
             ajaxObj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
             // （3）发送请求
-            ajaxObj.send($("form").serialize());
 
+            var psw= $("#psw").val();
+            $("#psw").val(b64_md5(encodeURIComponent($('#psw').val())))
+            ajaxObj.send($("form").serialize())
+            $("#psw").val(psw);
             //（4）注册事件。 onreadystatechange事件，状态改变时就会调用。
             //如果要在数据完整请求回来的时候才调用，我们需要手动写一些判断的逻辑。
             ajaxObj.onreadystatechange = function () {
@@ -208,6 +211,7 @@
                     else {
                            alert(jsonObj.msg)
                             $("#vcodeImg").click();//切换验证码
+                            $("#psw").val("");
                             $("input[name='vcode']").val("");//清空验证码输入框
                     }
 
@@ -217,9 +221,6 @@
                 document.querySelector(".login").style.display = "block"
             }
         },1500)
-
-
-
 
     }
 </script>

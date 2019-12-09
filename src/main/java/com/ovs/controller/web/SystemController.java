@@ -2,6 +2,8 @@ package com.ovs.controller.web;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,6 +18,7 @@ import com.ovs.service.AdminService;
 import com.ovs.service.ManipulateLogService;
 import com.ovs.service.UserService;
 import com.ovs.util.CpachaUtil;
+import com.ovs.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
@@ -91,7 +94,7 @@ public class SystemController {
 			@RequestParam(value="vcode",required=true) String vcode,
 			@RequestParam(value="type",required=true) int type,
 			HttpServletRequest request
-	){
+	) throws UnsupportedEncodingException, NoSuchAlgorithmException {
 		Map<String, String> ret = new HashMap<String, String>();
 		if(StringUtils.isEmpty(username)){
 			ret.put("type", "error");
@@ -123,7 +126,7 @@ public class SystemController {
 		//从数据库中去查找用户
 			//管理员
 		if (type==1) {
-			User_admin user = adminService.login_check(new User_admin(username, password));
+			User_admin user = adminService.login_check(new User_admin(username,password));
 			if (user == null) {
 				ret.put("type", "error");
 				ret.put("msg", "用户名或密码错误!");

@@ -5,7 +5,7 @@
   Time: 22:07
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="../easyui/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="../easyui/css/demo.css">
+    <script src="${pageContext.request.contextPath}/js/md5.js"></script>
     <script type="text/javascript" src="../easyui/jquery.min.js"></script>
     <script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="../easyui/js/validateExtends.js"></script>
@@ -123,12 +124,18 @@
                         plain: true,
                         iconCls:'icon-user_add',
                         handler:function(){
+                           // $("#add_password").val(b64_md5(encodeURIComponent($('#add_password').val())));
                             var validate = $("#addForm").form("validate");
                             if(!validate){
                                 $.messager.alert("消息提醒","请检查你输入的数据!","warning");
                                 return;
                             } else{
-                                var data = $("#addForm").serialize();
+                                var data = $("#addForm").serializeArray();
+                                for (var index=0;index<data.length;index++)
+                                    if (data[index].name=="psw") {
+                                        data[index].value = b64_md5(encodeURIComponent($('#add_password').val()))
+                                       break;
+                                    }
                                 $.ajax({
                                     type: "post",
                                     url: "add",
@@ -184,9 +191,12 @@
                                 $.messager.alert("消息提醒","请检查你输入的数据!","warning");
                                 return;
                             } else{
-
-                                var data = $("#editForm").serialize();
-
+                                var data = $("#editForm").serializeArray()
+                                for (var index=0;index<data.length;index++)
+                                    if (data[index].name=="psw") {
+                                        data[index].value = b64_md5(encodeURIComponent($('#edit_password').val()))
+                                        break;
+                                    }
                                 $.ajax({
                                     type: "post",
                                     url: "edit",
