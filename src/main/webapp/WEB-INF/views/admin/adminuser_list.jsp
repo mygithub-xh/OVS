@@ -43,7 +43,7 @@
                     {field:'id',title:'ID',width:50, sortable: true},
                     {field:'name',title:'用户名',width:100, sortable: true},
                     {field:'loginname',title:'登录名',width:100, sortable: true},
-                    {field:'psw',title:'密码',width:100},
+                    {field:'psw',title:'密码',width:200},
                 ]],
                 toolbar: "#toolbar"
             });

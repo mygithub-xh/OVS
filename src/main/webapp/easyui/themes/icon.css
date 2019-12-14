@@ -106,6 +106,9 @@
 .icon-user-admin{
 	background:url('icons/admin_user.png') no-repeat center center;
 }
+.icon-user{
+	background:url('icons/user.png') no-repeat center center;
+}
 
 .icon-number{
 	background:url('icons/text_list_numbers.png') no-repeat center center;

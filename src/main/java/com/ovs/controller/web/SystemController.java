@@ -176,6 +176,7 @@ public class SystemController {
 		CpachaUtil cpachaUtil = new CpachaUtil(vl, w, h);
 		String generatorVCode = cpachaUtil.generatorVCode();
 		request.getSession().setAttribute("loginCpacha", generatorVCode);
+		System.out.println(generatorVCode);
 		BufferedImage generatorRotateVCodeImage = cpachaUtil.generatorRotateVCodeImage(generatorVCode, true);
 		try {
 			ImageIO.write(generatorRotateVCodeImage, "gif", response.getOutputStream());

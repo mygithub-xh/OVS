@@ -63,7 +63,7 @@
     <div region="north" split="true" border="false" style="overflow: hidden; height: 30px;
         background:  #7f99be;
         line-height: 20px;color: #fff; font-family: Verdana, 微软雅黑,黑体">
-        <span style="float:right; padding-right:20px;" class="head"><span style="color:red; font-weight:bold;">${login_state.get("user").name}&nbsp;</span>您好&nbsp;&nbsp;&nbsp;<a href="admin_login_out" id="loginOut">安全退出</a></span>
+        <span style="float:right; padding-right:20px; vertical-align: middle" class="head"><span class="icon icon-user" style="vertical-align:middle;height: 18px"></span><span style="color:#b7d2ff; font-weight:bold;">${login_state.get("user").name}&nbsp;</span>您好&nbsp;&nbsp;&nbsp;<a href="admin_login_out" id="loginOut">注销</a></span>
         <span style="padding-left:10px; font-size: 16px; ">信息管理系统</span>
     </div>
     <div region="south" split="true" style="height: 30px; background: #D2E0F2; ">

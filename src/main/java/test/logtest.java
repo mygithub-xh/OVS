@@ -42,7 +42,9 @@ public class logtest {
        /* user.setId(1);
         user.setLoginname("xxxxx");
         System.out.println(user);*/
-        System.out.println(MD5Util.EncoderByMd5("123xuhang5vv"));
+       String  str="徐杭";
+       String string=new String(str.getBytes("gbk"),"utf-8");
+       System.out.println(new String(string.getBytes("utf-8"),"gbk"));
     }
 
 }

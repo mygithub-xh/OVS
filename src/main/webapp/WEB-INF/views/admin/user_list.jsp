@@ -42,7 +42,7 @@
 					},
 					{field:'name',title:'用户名',width:100, sortable: true},
 					{field:'loginname',title:'登录名',width:100},
-					{field:'psw',title:'密码',width:100},
+					{field:'psw',title:'密码',width:200},
 					{field:'sex',title:'性别',width:100},
 					{field:'phone',title:'电话',width:100},
 					{field:'email',title:'邮箱',width:150},
