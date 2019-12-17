@@ -27,20 +27,17 @@ public class LoginInterceptor  implements HandlerInterceptor{
 	public void afterCompletion(HttpServletRequest arg0,
 								HttpServletResponse arg1, Object arg2, Exception arg3)
 			throws Exception {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1,
 						   Object arg2, ModelAndView arg3) throws Exception {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
 							 Object arg2) throws Exception {
-		// TODO Auto-generated method stub
 		String url = request.getRequestURI();
 		//System.out.println("进入拦截器，url = " + url);
 		Map<String, Object> user = (Map<String, Object>)request.getSession().getAttribute("login_state");

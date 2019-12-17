@@ -21,24 +21,20 @@ public class AdminServiceImpl implements AdminService {
     private AdminMapper userMapper;
     @Override
     public User_admin findByUserName(String username) {
-        // TODO Auto-generated method stub
         return userMapper.findByUserName(username);
     }
 
 
     @Override
     public int add(User_admin user) {
-        // TODO Auto-generated method stub
         return userMapper.add(user);
     }
     @Override
     public List<User_admin> findList(Map<String,Object> queryMap) {
-        // TODO Auto-generated method stub
         return userMapper.findList(queryMap);
     }
     @Override
     public int getTotal(Map<String, Object> queryMap) {
-        // TODO Auto-generated method stub
         return userMapper.getTotal(queryMap);
     }
 
@@ -49,12 +45,10 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public int edit(User_admin user) {
-        // TODO Auto-generated method stub
         return userMapper.edit(user);
     }
     @Override
     public int delete(String ids) {
-        // TODO Auto-generated method stub
         return userMapper.delete(ids);
     }
 

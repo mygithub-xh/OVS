@@ -18,13 +18,11 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
     @Override
     public int add(User user) {
-        // TODO Auto-generated method stub
         return userMapper.add(user);
     }
 
     @Override
     public int edit(User user) {
-        // TODO Auto-generated method stub
         return userMapper.edit(user);
     }
 
@@ -35,31 +33,26 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int delete(String ids) {
-        // TODO Auto-generated method stub
         return userMapper.delete(ids);
     }
 
     @Override
     public List<User> findList(Map<String, Object> queryMap) {
-        // TODO Auto-generated method stub
         return userMapper.findList(queryMap);
     }
 
     @Override
     public List<User> findAll() {
-        // TODO Auto-generated method stub
         return userMapper.findAll();
     }
 
     @Override
     public int getTotal(Map<String, Object> queryMap) {
-        // TODO Auto-generated method stub
         return userMapper.getTotal(queryMap);
     }
 
     @Override
     public User findByUserName(String username) {
-        // TODO Auto-generated method stub
         return userMapper.findByUserName(username);
     }
 
